@@ -1,6 +1,6 @@
 # vcnode
 
-> A Vue.js project
+> 基于vue全家桶的cnode web app
 
 ## Build Setup
 
