@@ -1,7 +1,7 @@
 <template>
   <div class="detail "
        v-if="topic">
-    <header class="detail__header">
+    <header class="detail__header" :style='bg'>
       <div class="topic__avatar">
         <img class="topic__avatar"
              :src="topic.author.avatar_url"
@@ -25,12 +25,17 @@ import moment from 'moment'
 export default {
   data () {
     return {
-      topic: null
+      topic: null,
+      colors: ['#4A148C', '#7C4DFF', '#00BCD4', '#26A69A', '#FF5722', '#607D8B']
     }
   },
   computed: {
     formatedTime () {
       return moment(this.topic.last_reply_at).fromNow()
+    },
+    bg () { // 随机顶部北京颜色
+      let randomIndex = Math.floor(Math.random() * this.colors.length)
+      return 'background-color:' + this.colors[randomIndex]
     }
   },
   beforeMount () {
@@ -45,7 +50,6 @@ export default {
 .detail {
   @at-root #{&}__header {
     margin-bottom: 25px;
-    background: purple;
     display: flex;
     opacity: 0.6;
     font-size: 12px;
