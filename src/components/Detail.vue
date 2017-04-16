@@ -15,18 +15,42 @@
     </header>
     <div class="markdown-body detail__body"
          v-html="topic.content">
-
     </div>
+    <pop-btn :content='topic.reply_count' @handleClick="openReply" :position='replyPos'></pop-btn>
+    <pop-btn content='<i class="fa fa-long-arrow-left" aria-hidden="true"></i>' @handleClick="goback" :position='backPos'></pop-btn>
+   <div>
+   </div>
   </div>
 </template>
 <script>
 import { getTopicById } from '../store/api'
+import PopBtn from '@/components/popButton'
 import moment from 'moment'
 export default {
   data () {
     return {
       topic: null,
-      colors: ['#4A148C', '#7C4DFF', '#00BCD4', '#26A69A', '#FF5722', '#607D8B']
+      colors: ['#4A148C', '#7C4DFF', '#00BCD4', '#26A69A', '#FF5722', '#607D8B'],
+      replyPos: {
+        right: '30px',
+        bottom: '30px'
+      },
+      backPos: {
+        left: '30px',
+        bottom: '30px'
+
+      }
+    }
+  },
+  components: {
+    PopBtn
+  },
+  methods: {
+    openReply () {
+      alert('ok')
+    },
+    goback () { // 返回上一个页面
+      this.$router.go(-1)
     }
   },
   computed: {
