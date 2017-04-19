@@ -2,7 +2,7 @@
  * @Author: Harwin
  * @Date: 2017-04-13 23:57:45
  * @Last Modified by: Harwin
- * @Last Modified time: 2017-04-16 14:51:19
+ * @Last Modified time: 2017-04-18 14:54:06
  */
 
 import Vue from 'vue'
@@ -36,7 +36,8 @@ const store = new Vuex.Store({
         tab: 'job'
       }
     },
-    activeTab: 'all'
+    activeTab: 'all',
+    currentTopicReplyies: []
   },
   actions: {
     GET_TOPICS: ({ commit, dispatch, state }, params) => {
@@ -51,6 +52,9 @@ const store = new Vuex.Store({
     },
     SET_ACTIVE_TAB: (state, tab) => {
       state.activeTab = tab
+    },
+    SET_REPLY: (state, replies) => {
+      state.currentTopicReplies = replies
     }
   }
 })
