@@ -60,14 +60,11 @@ export default {
     margin-right: 15px;
   }
   @at-root #{&}__meta {
-    width: 80%;
+    flex: 1;
     text-align: left;
     @at-root #{&}__title {
       font-size: 12px;
       margin-bottom: 5px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden
     }
     @at-root #{&}__info {
       font-size: 10px;

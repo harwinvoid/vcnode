@@ -43,7 +43,7 @@ export default {
       border-bottom: solid 1px #eee;
     }
     .reply-info {
-      width: 84%;
+      flex: 1;
       align-self: center;
       text-align: left;
       p {
@@ -63,6 +63,7 @@ export default {
       }
       @at-root #{&}__content {
         font-size: 10px;
+        word-break: break-all;
       }
     }
 
