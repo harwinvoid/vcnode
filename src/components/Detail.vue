@@ -79,7 +79,8 @@ export default {
   @at-root #{&}__header {
     margin-bottom: 25px;
     display: flex;
-    opacity: 0.6;
+    position: fixed;
+    width: 100%;
     font-size: 12px;
     color: #fff;
     align-items: center;
@@ -98,6 +99,7 @@ export default {
   }
   @at-root #{&}__body {
     padding: 0 15px;
+    padding-top: 105px;
   }
 }
 </style>

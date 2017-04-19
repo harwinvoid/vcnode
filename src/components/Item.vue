@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 export default {
   props: {
     topic: {
@@ -40,7 +39,7 @@ export default {
       return this.$store.state.tabs[this.topic.tab].text
     },
     formatedTime () {
-      return moment(this.topic.last_reply_at).fromNow()
+      return this.moment(this.topic.last_reply_at).fromNow()
     }
   }
 }
