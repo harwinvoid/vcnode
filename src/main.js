@@ -11,6 +11,8 @@ import {InfiniteScroll} from 'mint-ui'
 
 Vue.use(InfiniteScroll)
 
+Vue.prototype.moment = moment
+
 sync(store, router)
 moment.locale('zh-CN')
 
