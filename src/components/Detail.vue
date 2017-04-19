@@ -16,7 +16,7 @@
     <div class="markdown-body detail__body"
          v-html="topic.content">
     </div>
-    <pop-btn :content='topic.reply_count' @handleClick="openReply" :position='replyPos'></pop-btn>
+    <pop-btn :content='replyContent' @handleClick="openReply" :position='replyPos'></pop-btn>
     <pop-btn content='<i class="fa fa-long-arrow-left" aria-hidden="true"></i>' @handleClick="goback" :position='backPos'></pop-btn>
    <div>
    </div>
@@ -24,7 +24,7 @@
 </template>
 <script>
 import { getTopicById } from '../store/api'
-import PopBtn from '@/components/popButton'
+import PopBtn from '@/components/PopButton'
 import moment from 'moment'
 export default {
   data () {
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     openReply () {
-      alert('ok')
+      this.$router.push({name: 'Reply'})
     },
     goback () { // 返回上一个页面
       this.$router.go(-1)
@@ -60,12 +60,16 @@ export default {
     bg () { // 随机顶部北京颜色
       let randomIndex = Math.floor(Math.random() * this.colors.length)
       return 'background-color:' + this.colors[randomIndex]
+    },
+    replyContent () {
+      return '<i class="fa fa-reply" style="margin-right:5px" aria-hidden="true"></i>' + this.topic.reply_count
     }
   },
   beforeMount () {
     var id = this.$store.state.route.params.id
     getTopicById(id).then((topic) => {
       this.topic = topic
+      this.$store.commit('SET_REPLY', topic.replies)
     })
   }
 }
