@@ -2,7 +2,7 @@
  * @Author: Harwin
  * @Date: 2017-04-13 23:57:45
  * @Last Modified by: Harwin
- * @Last Modified time: 2017-04-18 14:54:06
+ * @Last Modified time: 2017-04-24 20:39:10
  */
 
 import Vue from 'vue'
@@ -13,6 +13,9 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
+    user: {
+      isLogin: false
+    },
     topics: [],
     tabs: {
       all: {

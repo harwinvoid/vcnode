@@ -13,10 +13,19 @@ export default new Router({
       name: 'Home',
       component: resolve => {
         require.ensure(['@/components/Home'], () => {
-          console.log('aaa')
           resolve(require('@/components/Home'))
         })
       }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: resolve => {
+        require.ensure(['@/components/Login'], () => {
+          resolve(require('@/components/Login'))
+        })
+      }
+
     },
     {
       path: '/item/:id',
