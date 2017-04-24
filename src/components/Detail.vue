@@ -38,7 +38,6 @@ export default {
       backPos: {
         left: '30px',
         bottom: '30px'
-
       }
     }
   },
