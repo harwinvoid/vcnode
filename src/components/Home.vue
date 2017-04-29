@@ -25,15 +25,37 @@ export default {
       pos: {
         left: '30px',
         bottom: '30px'
-      },
-      popContent: '<i class="fa fa-user" aria-hidden="true"></i>'
+      }
+    }
+  },
+  computed: {
+    popContent () {
+      if (this.userInfo.success) {
+        return `<img class="user_avatar" src="${this.userInfo.avatar_url}">`
+      } else {
+        return '<i class="fa fa-user" aria-hidden="true"></i>'
+      }
+    },
+    userInfo () {
+      return this.$store.state.userInfo
     }
   },
   methods: {
     routeLogin () {
-      this.$router.push({name: 'Login'})
+      if (!this.userInfo.success) {
+        this.$router.push({name: 'Login'})
+      } else {
+
+      }
     }
   }
 
 }
 </script>
+<style lang="scss">
+  .user_avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+  }
+</style>

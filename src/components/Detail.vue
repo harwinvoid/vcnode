@@ -56,7 +56,7 @@ export default {
     formatedTime () {
       return moment(this.topic.last_reply_at).fromNow()
     },
-    bg () { // 随机顶部北京颜色
+    bg () { // 随机顶部背景颜色
       let randomIndex = Math.floor(Math.random() * this.colors.length)
       return 'background-color:' + this.colors[randomIndex]
     },
